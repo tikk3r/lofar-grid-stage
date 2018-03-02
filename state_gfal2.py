@@ -22,10 +22,26 @@ def check_status(surl, verbose=True):
     status = context.getxattr(surl, 'user.status')
     filename = surl.split('/')[-1]
     if verbose:
-        print('{:s} is'.format(filename)),
-        print(status)
+        print('{:s} is {:s}'.format(filename, status))
     return status
+
+def check_status_file(filename, verbose=True):
+    """ Check the status of SURLS listed in a file.
+    Args:
+        filename (str): file to read SRULS from.
+        verbose (bool): print the status to the terminal.
+    Return:
+        None
+    """
+    with open(filename, 'r') as f:
+        for srm in f.readlines():
+            check_status(srm.strip(), verbose=verbose)
 
 if __name__ == '__main__':
     surl = sys.argv[1]
-    check_status(surl)
+    if (surl.lower()).startswith('srm'):
+        # Single file.
+        check_status(surl)
+    else:
+        # Assume a file list.
+        check_status_file(surl)
