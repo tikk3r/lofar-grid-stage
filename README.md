@@ -15,8 +15,17 @@ To check a SURL from another script:
 
 **File staging**
 
-As based on the example given here: https://gitlab.cern.ch/dmc/gfal2-bindings/blob/develop/example/python/gfal2_bring_online.py
+As based on the example given here (alson included in this repository): https://gitlab.cern.ch/dmc/gfal2-bindings/blob/develop/example/python/gfal2_bring_online.py
 
 To stage a single SURL by hand (this script does not exit until the staging succeeds or fails):
 
     python gfal2_bring_online.py <surl>
+
+or
+
+    python stage_gfal2.py <surl>
+    
+To stage from another script:
+
+    import stage_gfal2
+    stage_gfal2.stage(surl)
