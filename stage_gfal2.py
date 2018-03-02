@@ -14,6 +14,7 @@ def stage(surl, async=False, wait=False):
     """ Attempt to stage the given SURL.
     Args:
         surl (str): SURL pointing to the file to stage.
+        async (bool): execute the request asynchronously. Prevents blocking, but also prevents exception catching. Use "state_gfal2.py" to check staging status.
         wait (bool): wait for the staging to succeed or fail before returning.
     Returns:
         success (bool): boolean indicating if staging succeeded or failed.
