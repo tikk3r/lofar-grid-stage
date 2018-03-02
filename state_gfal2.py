@@ -39,7 +39,7 @@ def check_status_file(filename, verbose=True):
 
 if __name__ == '__main__':
     surl = sys.argv[1]
-    if (surl.lower()).startswith('srm'):
+    if (surl.lower()).startswith('srm://'):
         # Single file.
         check_status(surl)
     else:

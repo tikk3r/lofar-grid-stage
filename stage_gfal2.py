@@ -65,7 +65,7 @@ def stage_file(filename, async=False, wait=False):
 
 if __name__ == '__main__':
     surl = sys.argv[1]
-    if surl.startswith('srm'):
+    if surl.startswith('srm://'):
         # Single file.
         stage(surl)
     else:
