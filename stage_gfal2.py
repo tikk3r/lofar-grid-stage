@@ -32,10 +32,11 @@ def stage(surl, wait=False, verbose=True):
             import time
             # Status 0 = queued, >0 = pinned, <0 = error.
             while status == 0:
-                print status
                 status = context.bring_online_poll(surl, token)
                 # Sleep for 100ms to avoid excessive CPU load.
                 time.sleep(0.1)
+            if verbose and status > 0:
+                print('{:s} successfully staged.'.format(surl))
         success = True
     except gfal2.GError, e:
         success = False
