@@ -13,7 +13,7 @@ if __name__ == '__main__':
     ctx = gfal2.creat_context()
     try:
         # bring_online(surl, pintime, timeout, async)
-        (status, token) = ctx.bring_online(surl, 60, 60, False)
+        (status, token) = ctx.bring_online(surl, 60, 60, True)
         print "Got token %s" % token
         while status == 0:
             status = ctx.bring_online_poll(surl, token)
