@@ -23,10 +23,10 @@ def stage(surl, async=False, wait=False):
     """
     context = gfal2.creat_context()
     try:
-        print('Attempting to stage {:s}'.format(surl.split('/')[-1]))
         status = state_gfal2.check_status(surl)
         if 'ONLINE' in status:
             return True
+        print('Attempting to stage {:s}'.format(surl.split('/')[-1]))
         # bring_online(surl, pintime, timeout, async)
         # Set the pintime (in seconds) to 7 days (as the LTA).
         # Put in an asynchronous request so it doesn't block.
