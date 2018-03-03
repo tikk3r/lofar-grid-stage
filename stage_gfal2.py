@@ -50,7 +50,7 @@ def stage(surl, async=False, wait=False):
         print(e.message)
     return success
 
-def stage_file(filename, async=False, wait=False):
+def stage_file(filename, async=True, wait=False):
     """ Attempt to stage SURLS from a file. 
     Args:
         filename (str): file containing one SURL per line.
